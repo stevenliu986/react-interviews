@@ -13,9 +13,6 @@ function App() {
 
   const [board, setBoard] = useState(generateBoard(3));
   const [currPlayer, setCurrPlayer] = useState("X");
-  const handleChange = (e) => {
-    setBoard(generateBoard(e.target.value));
-  };
 
   const handleClickBoard = (row, col) => {
     board[row][col] = currPlayer;
@@ -27,10 +24,13 @@ function App() {
     setBoard(generateBoard(3));
   };
 
+  // decide who wins
+  const winner = (row, col) => {
+    console.log(row, col);
+  };
+
   return (
     <div>
-      <label htmlFor="">请输入棋盘的尺寸</label>
-      <input type="text" onChange={handleChange} />
       {board.map((row, r) => {
         return (
           <div
